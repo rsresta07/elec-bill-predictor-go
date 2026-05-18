@@ -1,8 +1,12 @@
--- Track individual meter readings over time
 CREATE TABLE MeterReadings (
     id SERIAL PRIMARY KEY,
-    reading_date DATE NOT NULL UNIQUE,
-    kwh_consumed DECIMAL(10, 2) NOT NULL
+    billing_month DATE NOT NULL,      -- e.g., '2024-01-01' represents January
+    prev_reading_value DECIMAL(10, 2) NOT NULL,
+    curr_reading_value DECIMAL(10, 2) NOT NULL,
+    units_consumed DECIMAL(10, 2) NOT NULL,    -- curr - prev
+    total_price DECIMAL(10, 2) NOT NULL,       -- calculated cost
+    capacity_amps INT NOT NULL,                -- 5, 15, 30, or 60
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Store the tariff logic so you can change rates without redeploying code

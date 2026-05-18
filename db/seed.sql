@@ -24,3 +24,12 @@ INSERT INTO TariffSlabs (capacity_amps, slab_start, slab_end, min_fee, rate_per_
 (30, 51, 100, 125.00, 9.50),
 (30, 101, 250, 150.00, 9.50),
 (30, 251, NULL, 200.00, 11.00);
+
+-- Insert 60A Tariff Data
+INSERT INTO TariffSlabs (capacity_amps, slab_start, slab_end, min_fee, rate_per_unit) VALUES
+(60, 0, 20, 125.00, 6.00),
+(60, 21, 30, 125.00, 6.50),
+(60, 31, 50, 125.00, 8.00),
+(60, 51, 100, 150.00, 9.50),
+(60, 101, 250, 200.00, 9.50),
+(60, 251, NULL, 250.00, 11.00);
