@@ -24,3 +24,33 @@ func CalculateWMA(readings []float64, weights []float64) float64 {
 	}
 	return wma
 }
+
+// CalculateLinearRegression predicts the next value based on a trend line
+func CalculateLinearRegression(data []float64) float64 {
+	n := float64(len(data))
+	if n < 2 {
+		if n == 1 {
+			return data[0]
+		}
+		return 0
+	}
+
+	var sumX, sumY, sumXY, sumXX float64
+	for i, y := range data {
+		x := float64(i + 1) // x is the time step (Month 1, 2, 3...)
+		sumX += x
+		sumY += y
+		sumXY += x * y
+		sumXX += x * x
+	}
+
+	// Calculate Slope (m)
+	m := (n*sumXY - sumX*sumY) / (n*sumXX - sumX*sumX)
+
+	// Calculate Intercept (c)
+	c := (sumY - m*sumX) / n
+
+	// Predict for the next time step (n + 1)
+	nextX := n + 1
+	return m*nextX + c
+}
