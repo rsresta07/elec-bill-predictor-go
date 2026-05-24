@@ -1,0 +1,131 @@
+{
+  "info": {
+    "_postman_id": "dd6d3ece-bb88-4c64-88c5-9e6951c40650",
+    "name": "Electricity",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32932690"
+  },
+  "item": [
+    {
+      "name": "Calculate Price",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/calculate?units=100&amps=5",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "calculate"
+          ],
+          "query": [
+            {
+              "key": "units",
+              "value": "100"
+            },
+            {
+              "key": "amps",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Reading",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"current_value\": 550,\n  \"amps\": 5,\n  \"month\": \"2024-07-01\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/readings",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "readings"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Reading",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"units\": 115.5\n}"
+        },
+        "url": {
+          "raw": "localhost:8080/api/readings",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "readings"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Forecast",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"units\": 115.5\n}"
+        },
+        "url": {
+          "raw": "localhost:8080/api/forecast",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "forecast"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
